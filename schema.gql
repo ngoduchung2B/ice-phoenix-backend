@@ -14,6 +14,17 @@ type CatType {
   characteristics: Characteristics!
 }
 
+type UserType {
+  name: String!
+  user_name: String!
+  password: String!
+  email: String!
+}
+
+type LoginOutputType {
+  token: String!
+}
+
 input CharacteristicsInput {
   lifespan: String!
   size: String!
@@ -26,12 +37,29 @@ input CatInputType {
   characteristics: CharacteristicsInput!
 }
 
+input UserInput {
+  name: String!
+  user_name: String!
+  password: String!
+  email: String!
+}
+
 type Query {
   cats: [CatType!]!
+  users: [UserType!]!
+  me: UserType!
 }
 
 type Mutation {
   createCat(input: CatInputType!): CatType!
   updateCat(input: CatInputType!, id: String!): CatType!
-  deleteCat(id: String!): CatType!
+  deleteCat(id: String!): UserType!
+  createUser(input: UserInput!): UserType!
+  updateUser(input: UserInput!, id: String!): UserType!
+  login(input: LoginInput!): LoginOutputType!
+}
+
+input LoginInput {
+  user_name: String!
+  password: String!
 }
