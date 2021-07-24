@@ -6,6 +6,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { MongooseModule } from '@nestjs/mongoose';
 import { loggerMiddleware } from './authorization.middleware';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { UserModule } from './user/user.module';
     }),
     MongooseModule.forRoot('mongodb://localhost/nest'),
     UserModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
