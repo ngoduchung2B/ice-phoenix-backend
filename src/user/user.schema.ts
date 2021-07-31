@@ -7,6 +7,9 @@ export class User {
   name: string;
 
   @Prop()
+  roles: 'admin' | 'user';
+
+  @Prop()
   user_name: string;
 
   @Prop()

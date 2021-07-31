@@ -48,7 +48,8 @@ type Query {
 type Mutation {
   createCat(input: CatInputType!): CatType!
   updateCat(input: CatInputType!, id: String!): CatType!
-  deleteCat(id: String!): UserType!
+  deleteCat(id: String!): CatType!
   createUser(input: UserInput!): UserType!
   updateUser(input: UserInput!, id: String!): UserType!
+  deleteUser(id: String!): UserType!
 }

@@ -15,12 +15,3 @@ export class UserType {
   @Field()
   email: string;
 }
-
-@InputType('LoginInput')
-export class LoginInput {
-  @Field()
-  user_name: string;
-
-  @Field()
-  password: string;
-}

@@ -20,12 +20,14 @@ export class UserResolver {
   }
 
   @Mutation(() => UserType)
+  @UseGuards(GqlAuthGuard)
   async updateUser(@Args('id') id: string, @Args('input') input: UserType) {
     return this.userService.update(id, input);
   }
 
   @Mutation(() => UserType)
-  async deleteCat(@Args('id') id: string) {
+  @UseGuards(GqlAuthGuard)
+  async deleteUser(@Args('id') id: string) {
     return this.userService.delete(id);
   }
 }
