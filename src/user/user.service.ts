@@ -14,12 +14,15 @@ export class UserService {
   }
 
   async create(createUserDto: UserType): Promise<User> {
-    const createdUser = new this.userModel(createUserDto);
+    const createdUser = new this.userModel({ ...createUserDto, roles: 'user' });
     return createdUser.save();
   }
 
   async update(id: string, updateUserDto: UserType): Promise<User> {
-    return this.userModel.findByIdAndUpdate(id, updateUserDto);
+    return this.userModel.findByIdAndUpdate(id, {
+      ...updateUserDto,
+      roles: 'user',
+    });
   }
 
   async delete(id: string): Promise<User> {
